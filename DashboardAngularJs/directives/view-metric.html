@@ -1,0 +1,20 @@
+﻿<div ng-controller="tileController" class="" ng-init="load($parent.tiles[$index])">
+	<div ng-hide="isEdit || isLoading" class="panel panel-default metric-tile-container">
+		<div class="panel-heading">
+			<div class="left metric-tile-head">{{metric.Title}}</div>
+			<div class="pull-right">
+				<span ng-click="edit()" class="glyphicon glyphicon-cog"></span>
+			</div>
+			<div class="pull-right metric-tile-details">
+				<a class="metric-tile-details" href="javascript:alert('go!')">
+					<span class="glyphicon glyphicon-signal"></span> View metric detail
+				</a>
+			</div>
+		</div>
+		<div class="panel-body">
+			<chart value='chart'></chart>
+		</div>
+	</div>
+	<loading-metric ng-show="isLoading"></loading-metric>
+	<edit-metric ng-show="isEdit"></edit-metric>
+</div>

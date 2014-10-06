@@ -1,0 +1,45 @@
+﻿@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html ng-app="dashboard">
+	<head>
+		<meta name="viewport" content="width=device-width" />
+		<title>AngularJs Dashboard</title>
+		<link href="~/css/bootstrap.css" rel="stylesheet" />
+		<link href="~/css/style.css" rel="stylesheet" />
+	</head>
+	<body ng-init="load()" ng-controller="dashboardController" >
+		<div class="panel panel-default metric-control-panel">
+			<select ng-change="showTiles(selectedDashboardId)"
+					ng-model="selectedDashboardId"
+					ng-options="item.Id as item.Title for item in dashboards">
+			</select>
+			<button class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
+			<button class="btn btn-default" ng-click="createTile()"><span class="glyphicon glyphicon-plus-sign"></span></button>
+		</div>
+		<ul class="metric-tiles">
+			<li ng-repeat="tile in tiles">
+				<view-metric></view-metric>
+			</li>
+			<li>
+				<new-metric></new-metric>
+			</li>
+		</ul>
+	</body>
+
+	@*scripts*@
+	@{
+		const string localization = "RU-RU";
+	} 
+	<script src="~/resources/@("main." + localization + ".js")"></script>
+	<script src="~/js/jquery-2.1.1.min.js"></script>
+	<script src="~/js/bootstrap.min.js"></script>
+	<script src="~/js/angular.min.js"></script>
+	<script src="~/js/highcharts.js"></script>
+	<script src="~/js/dashboard/charts/ranking-chart.js"></script>
+	<script src="~/js/dashboard/dashboard-module.js"></script>
+	<script src="~/js/dashboard/dashboard-controller.js"></script>
+	<script src="~/js/dashboard/dashboard-tiles-controller.js"></script>
+	<script src="~/js/dashboard/dashboard-tile-directives.js"></script>
+</html>

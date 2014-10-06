@@ -1,0 +1,110 @@
+﻿body {
+	margin: 20px;
+}
+
+select {
+	border-radius: 4px;
+	height: 33px;
+	border-color: #ddd;
+}
+
+.metric-tile-container {
+	width: 480px;
+	height: 310px;
+	margin-right: 0;
+	margin-bottom: 0;
+	-webkit-perspective: 1500px;
+	-moz-perspective: 1500px;
+	-ms-perspective: 1500px;
+	perspective: 1500px;
+	position: relative;
+}
+
+.metric-control-panel {
+	padding: 20px;
+}
+
+.metric-tiles {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.metric-tiles > li{
+	width: 480px;
+	height: 320px;
+	position: relative;
+	float: left;
+	margin: 0 5px;
+	padding: 0;
+}
+
+.metric-tile-head {
+	max-width: 160px;
+	display: inline-block;
+}
+
+.metric-tile-details {
+	display: inline-block;
+	padding: 0 10px;
+}
+
+.edit-metric-tile {
+	border-radius: 4px;
+	border: 1px solid #ddd;
+}
+
+.metric-tile-loading {
+	padding: 100px 0 0 0;
+	border: 1px solid #dfdfdf;
+	border-radius: 3px;
+	text-align: center;
+	background: #eee;
+}
+
+.new-metric-tile {
+	border: 3px dashed #dfdfdf;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.new-metric-tile a {
+	border: 1px solid #C0C0C0;
+	padding: 18px;
+	background-color: #ECECEC;
+	color: #242424;
+	font-weight: bold;
+	text-decoration: none;
+	position: relative;
+	top: 122px;
+}
+
+.metric-tile-details {
+    opacity: 0;
+    display: block;
+    height: 0;
+    -webkit-transition: opacity .3s, -webkit-transform .3s;
+    -moz-transition: opacity .3s,transform .3s;
+    transition: opacity .3s,transform .3s;
+}
+
+.metric-tile-details:hover {
+	
+		text-decoration: none;
+}
+
+.panel-heading:hover .metric-tile-details {
+    height: auto;
+    opacity: 1;
+    -moz-transition: opacity .3s,transform .3s;
+    transition: opacity .3s,transform .3s;
+    -webkit-transition: opacity .3s, -webkit-transform .3s;
+}
+
+.metric-tile-buttons {
+position: absolute;
+bottom: 10px;
+left: 10px;
+right: 10px;
+}

@@ -1,0 +1,7 @@
+﻿<div ng-controller="tileController" ng-init="isLoading = false">
+	<div ng-hide="isEdit || isLoading" class="metric-tile-container new-metric-tile">
+		<a ng-click="new()" href="javascript:void(0)"><span class="glyphicon glyphicon-plus"></span>Add metric tile</a>
+	</div>
+	<loading-metric ng-show="isLoading"></loading-metric>
+	<edit-metric ng-show="isEdit"></edit-metric>
+</div>

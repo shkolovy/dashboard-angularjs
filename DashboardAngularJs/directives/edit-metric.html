@@ -1,0 +1,63 @@
+﻿<div class="edit-metric-tile metric-tile-container">
+	<form novalidate>
+		<table>
+			<tr>
+				<td res="Dashboard_Metric"></td>
+				<td>
+					<select ng-change="changeMetricType()"
+						ng-model="metricSettings.MetricType"
+						ng-options="item.Value as item.Text for item in metricSettings.MetricTypes">
+					</select>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td res="Dashboard_ChartType"></td>
+				<td>
+					<select ng-change=""
+						ng-model="metricSettings.ChartType"
+						ng-options="item.Value as item.Text for item in metricSettings.ChartTypes">
+					</select>
+				</td>
+				<td>
+					<select ng-change=""
+						ng-model="metricSettings.ChartScope"
+						ng-options="item.Value as item.Text for item in metricSettings.ChartScopes">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td res="Dashboard_Show"></td>
+				<td>
+					<select ng-change=""
+						ng-model="metricSettings.EntityType"
+						ng-options="item.Value as item.Text for item in metricSettings.EntityTypes">
+					</select>
+				</td>
+				<td>
+					<select ng-change=""
+						ng-model="metricSettings.StatType"
+						ng-options="item.Value as item.Text for item in metricSettings.StatTypes">
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td res="Dashboard_Time"></td>
+				<td>
+					<select ng-change=""
+						ng-model="metricSettings.FuzzyDateType"
+						ng-options="item.Value as item.Text for item in metricSettings.FuzzyDateTypes">
+					</select>
+				</td>
+				<td>
+				</td>
+			</tr>
+		</table>
+
+		<div class="metric-tile-buttons">
+			<button class="btn btn-danger" ng-show="metric.id !== 0" ng-click="remove($index)">Delete</button>
+			<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+			<button class="btn btn-default" ng-click="save()">Save</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,47 @@
+﻿<#@ template language="C#" hostspecific="True" debug="True" #>
+<#@ output extension=".js" encoding="UNICODE" #>
+<#@ assembly name="System.Xml.Linq.dll"#>
+<#@ assembly name="System.Core.dll" #>
+<#@ assembly name="System.Xml.dll" #>
+<#@ assembly name="Microsoft.VisualStudio.Shell.Interop.8.0" #>
+<#@ assembly name="EnvDTE" #>
+<#@ assembly name="EnvDTE80" #>
+<#@ assembly name="VSLangProj" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="Microsoft.VisualStudio.Shell.Interop" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="EnvDTE80" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ import namespace="System.Resources" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text.RegularExpressions"#>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Globalization" #>
+<#
+	var data = new Dictionary<string, string>();
+	var invariantXmlFile = Path.Combine(Path.GetDirectoryName(Host.TemplateFile	), "main.RU-RU.resx");
+	var doc = System.Xml.Linq.XDocument.Load(invariantXmlFile);
+	var invariantCulture = doc.Descendants("data").Select(x => new KeyValuePair<string, string>(x.Attribute("name").Value, x.Element("value").Value.Replace("'", @"\'").Replace(Environment.NewLine, string.Empty)))
+																	.ToDictionary((keyItem) => keyItem.Key, (valueItem) => valueItem.Value);
+
+	data = invariantCulture;
+	var dataList = data.Select(x => new {key = x.Key, value = x.Value}).ToList();
+#>
+/*!
+*
+*    Yo!!!
+*
+*/
+/*This file is generated automaticly during design-time. Do not edit it manually.*/
+
+Localization = {
+<# for(int i = 0; i < dataList.Count()-1; i++) { #>
+	<#= dataList[i].key #> : '<#= dataList[i].value #>',
+<#}#>
+	<#= dataList[data.Count()-1].key #> : '<#= dataList[data.Count()-1].value #>'
+};
